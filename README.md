@@ -7,6 +7,7 @@ This project is built using NextJs (Typescript) to manage the learning resources
 2. NextJS
 3. Tailwind CSS
 4. React Icons
+5. country-flag-icons
 
 ## Getting Started
 

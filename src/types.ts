@@ -29,10 +29,16 @@ export interface ButtonProps {
     label: string;
 }
 
+
+type SubRoute = {
+    path: string;
+    label: string;
+}
 export interface Route {
     path: string;
     label: string;
     Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    sub_route?: SubRoute[];
 }
 
 export interface DashboardProps {
@@ -42,4 +48,17 @@ export interface DashboardProps {
 export interface Language {
     Icon: FlagComponent;
     label: string;
+}
+
+export interface AnalyticsItem {
+    label: string;
+    count: number;
+    percentage_change: number;
+    change_type: 'increase' | 'decrease';
+    formatCountAsCurrency?: boolean;
+}
+
+export interface ContentTitleProps {
+    title: string;
+    crumbs: string[];
 }

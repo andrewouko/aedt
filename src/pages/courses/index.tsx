@@ -18,6 +18,6 @@ import DashboardLayout from "@/components/layout/DashboardLayout";
 
 export default function Courses() {
   return (
-    <DashboardLayout>Mierda</DashboardLayout>
+    <DashboardLayout>Coming soon!</DashboardLayout>
   );
 }

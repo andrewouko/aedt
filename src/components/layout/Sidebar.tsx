@@ -20,6 +20,7 @@ import { BiHomeAlt, BiCabinet } from "react-icons/bi";
 import { BsShieldCheck } from "react-icons/bs";
 import { RiMoneyDollarBoxLine } from "react-icons/ri";
 import { useRouter } from "next/router";
+import { RxCaretRight } from "react-icons/rx";
 
 const routes: Route[] = [
   {
@@ -31,6 +32,16 @@ const routes: Route[] = [
     path: "/courses",
     label: "Courses",
     Icon: BiCabinet,
+    sub_route: [
+      {
+        path: "/courses",
+        label: "All courses",
+      },
+      {
+        path: "/courses/curriculum",
+        label: "Curriculum",
+      },
+    ],
   },
   {
     path: "/user",
@@ -54,23 +65,80 @@ interface NavItem extends Route {
 }
 
 const NavItem = ({ path, label, Icon, isActive }: NavItem) => {
-    const className = isActive ? "flex items-center px-6 py-2 mt-4 duration-200 text-gray-100" : "flex items-center px-6 py-2 mt-4 duration-200 text-gray-500 hover:bg-gray-600 hover:bg-opacity-25 hover:text-gray-100";
-  return <Link
-    href={path}
-    className={className}
-    key={path}
-  >
-    <Icon />
-    <span className="mx-4">{label}</span>
-  </Link>
+  const className = isActive
+    ? "text-gray-100"
+    : "text-gray-500 hover:bg-gray-600 hover:bg-opacity-25 hover:text-gray-100";
+  return (
+    <>
+      <div
+        className={`${className} flex items-center px-6 py-2 mt-4 duration-200`}
+        key={path}
+      >
+        <div className="w-full flex justify-between">
+          <Link href={path} className="flex items-center space-x-2">
+            <Icon />
+            <span className="">{label}</span>
+          </Link>
+          <RxCaretRight
+            id="dropdownDefaultButton"
+            data-dropdown-toggle="dropdown"
+          />
+        </div>
+      </div>
+      {/* <div className="grid grid-cols-1 place-items-end w-full">
+        <div
+          id="dropdown"
+          className="z-10 divide-y divide-gray-100  w-44 bg-transparent shadow place-items-end"
+        >
+          <ul
+            className="py-2 text-sm text-gray-700 dark:text-gray-200"
+            aria-labelledby="dropdownDefaultButton"
+          >
+            <li>
+              <a
+                href="#"
+                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              >
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              >
+                Settings
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              >
+                Earnings
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              >
+                Sign out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div> */}
+    </>
+  );
 };
 
 export default function Sidebar() {
-    const router = useRouter();
+  const router = useRouter();
   return (
     <>
       <div className="flex">
-        <div className="fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-gray-900 lg:translate-x-0 lg:static lg:inset-0">
+        <div className="fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-gray-800 lg:translate-x-0 lg:static lg:inset-0">
           <div className="flex items-center justify-center mt-8">
             <div className="flex items-center">
               <Image
@@ -82,10 +150,13 @@ export default function Sidebar() {
           </div>
           <nav className="mt-10">
             <div className="border-solid border-b-2 border-gray-400 pb-6">
-            {routes.map(route => {
-                const item = ({...route, isActive: router.pathname === route.path})
-                return NavItem(item)
-            })}
+              {routes.map((route) => {
+                const item = {
+                  ...route,
+                  isActive: router.pathname === route.path,
+                };
+                return NavItem(item);
+              })}
             </div>
           </nav>
         </div>
