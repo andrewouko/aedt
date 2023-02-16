@@ -30,24 +30,38 @@ export interface ButtonProps {
 }
 
 
-type SubRoute = {
-    path: string;
-    label: string;
-}
 export interface Route {
     path: string;
     label: string;
-    Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-    sub_route?: SubRoute[];
+    Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    sub_route?: Route[];
+    badge?: React.ReactNode;
 }
 
 export interface DashboardProps {
     children: React.ReactNode;
+    title: string;
+    crumbs: Array<string>;
 }
 
 export interface Language {
     Icon: FlagComponent;
     label: string;
+}
+
+export interface Course {
+    title: string;
+    image: string;
+    instructor: {
+        name: string;
+        image: string;
+    }
+    enrolled: number;
+    create_date: Date;
+    curriculum: {
+        url: string;
+        status: 'blue' | 'green' | 'red'
+    };
 }
 
 export interface AnalyticsItem {
@@ -61,4 +75,13 @@ export interface AnalyticsItem {
 export interface ContentTitleProps {
     title: string;
     crumbs: string[];
+}
+
+export type FileType = 'zip' | 'folder' | 'pdf';
+
+export interface Material {
+    name: string;
+    type: FileType;
+    size: number;
+    path: string;
 }
