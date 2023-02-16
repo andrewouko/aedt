@@ -174,7 +174,7 @@ const NavItem = ({
           <div className="grid grid-cols-1 place-items-end w-full">
             <div
               id="dropdown"
-              className="z-10 divide-y divide-gray-100  w-70 bg-transparent place-items-end"
+              className="bg-transparent w-3/4"
             >
               <ul
                 className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -184,7 +184,7 @@ const NavItem = ({
                   <li key={route.path}>
                     <Link
                       href={route.path}
-                      className={`flex items-center space-x-2 px-4 py-2 ${getLinkClass(
+                      className={`flex items-center space-x-2 px-4 py-2 justify-between ${getLinkClass(
                         route.path === pathname
                       )}`}
                     >
@@ -209,7 +209,7 @@ export default function Sidebar() {
   });
   return (
     <>
-      <div className="flex">
+      <div className="hidden lg:flex">
         <div className="fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-gray-800 lg:translate-x-0 lg:static lg:inset-0">
           <div className="flex items-center justify-center mt-8">
             <div className="flex items-center">

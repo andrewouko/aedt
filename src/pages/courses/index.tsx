@@ -1,10 +1,13 @@
+import Button from "@/components/form/Button";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Course } from "@/types";
 import {
   Avatar,
-  Box, Chip,
+  Box,
+  Chip,
   IconButton,
-  Modal, Typography
+  Modal,
+  Typography,
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -120,13 +123,13 @@ export default function Courses() {
     <DashboardLayout title="Courses" crumbs={["Home", "Manage", "Courses"]}>
       <div className="bg-white p-6">
         <div>
-          <button
+          <Button
             type="button"
             onClick={() => handleOpen()}
-            className="text-white bg-indigo-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-base px-6 py-2 flex items-center space-x-2"
-          >
-            <IoIosAddCircle /> <div>Add New Course</div>
-          </button>
+            Icon={IoIosAddCircle}
+            label="Add New Course"
+            color="indigo"
+          />
           <Modal
             open={open}
             onClose={handleClose}
@@ -168,7 +171,7 @@ export default function Courses() {
                 const td_className = `p-2 text-gray-500 text-sm`;
                 const td_div_className =
                   "grid grid-flow-col auto-cols-max items-center space-x-2";
-                const action_icon_className = "text-base" 
+                const action_icon_className = "text-base";
                 return (
                   <tr
                     key={course.title}
@@ -219,7 +222,7 @@ export default function Courses() {
                           <FaEdit className={action_icon_className} />
                         </IconButton>
                         <IconButton aria-label="delete">
-                          <MdDelete className={action_icon_className}/>
+                          <MdDelete className={action_icon_className} />
                         </IconButton>
                       </div>
                     </td>

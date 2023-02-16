@@ -24,9 +24,11 @@ export interface CheckboxProps extends InputProps {
 }
 
 export interface ButtonProps {
-    Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     onClick: React.MouseEventHandler<HTMLButtonElement>;
     label: string;
+    type: "button" | "submit"
+    color: "indigo" | "yellow" | "pink"
 }
 
 
@@ -77,7 +79,7 @@ export interface ContentTitleProps {
     crumbs: string[];
 }
 
-export type FileType = 'zip' | 'folder' | 'pdf';
+export type FileType = 'application/zip' | 'folder' | 'application/pdf';
 
 export interface Material {
     name: string;

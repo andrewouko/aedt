@@ -86,7 +86,7 @@ export default function Home() {
               return TextInput(input);
             } else return Checkbox(input);
           })}
-          <Button Icon={FaUserCircle} onClick={() => {}} label={`Sign Up`} />
+          <Button Icon={FaUserCircle} onClick={() => {}} label={`Sign Up`} type="submit" color="indigo" />
         </form>
         <div className="grid grid-flow-row auto-rows-max items-center place-content-center mt-8">
           <div className="flex items-center place-content-center text-gray-500 text-lg mb-4">

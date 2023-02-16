@@ -72,7 +72,7 @@ export default function Login() {
               return TextInput(input);
             } else return Checkbox(input);
           })}
-          <Button Icon={BiLogIn} onClick={() => {}} label={`Log In`}/>
+          <Button Icon={BiLogIn} onClick={() => {}} label={`Log In`} type="submit" color="indigo" />
         </form>
         <div className="grid grid-flow-row auto-rows-max items-center place-content-center mt-8">
           <div className="flex items-center place-content-center text-gray-500 text-lg mb-4">
@@ -80,12 +80,12 @@ export default function Login() {
           </div>
           <Socials />
           <div className="mt-24">
-            <span className="text-gray-400 text-sm mr-2">Already have an account?</span>
+            <span className="text-gray-400 text-sm mr-2">{`Don't have an account?`}</span>
             <Link
               className="font-medium text-gray-400 hover:underline"
-              href="/login"
+              href="/"
             >
-              Login
+              Sign Up
             </Link>
           </div>
         </div>

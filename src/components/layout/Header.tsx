@@ -26,7 +26,8 @@ import { MdNotificationsNone } from "react-icons/md";
 import { TbCircles } from "react-icons/tb";
 import { BsGear } from "react-icons/bs";
 import { IoMdContract } from "react-icons/io";
-import {RiNotification3Line} from "react-icons/ri";
+import { RiNotification3Line } from "react-icons/ri";
+import { Avatar } from "@mui/material";
 const langs: Language[] = [
   {
     Icon: US,
@@ -57,7 +58,7 @@ export default function Header() {
         <div className="flex items-center">
           <RxTextAlignJustify size={`2rem`} />
 
-          <div className="relative ml-2 min-w-[500px]">
+          <div className="relative ml-2 min-w-[270px] lg:min-w-[500px]">
             <form method="post" action="#">
               <div className="flex flex-row">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -70,12 +71,7 @@ export default function Header() {
                   placeholder="Search..."
                   required
                 />
-                <button
-                  type="submit"
-                  className="text-white bg-indigo-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-base px-8 py-2"
-                >
-                  Search
-                </button>
+                <Button  type="submit" color="indigo" onClick={() => {}} label="Search" />
               </div>
             </form>
           </div>
@@ -94,6 +90,7 @@ export default function Header() {
                   onClick={() => {
                     setLangOpen(!langOpen);
                   }}
+                  onBlur={() => setTimeout(() => setLangOpen(false), 500)}
                 >
                   {lang && <lang.Icon className="w-5 h-5 mr-2" />}
                   <span className="text-gray-500">{lang?.label}</span>
@@ -136,16 +133,12 @@ export default function Header() {
           {TopLeftIcon(FaRegMoon)}
           {TopLeftIcon(IoMdContract)}
           <div className="relative flex items-center">
-            <button
-              //   @click="dropdownOpen = !dropdownOpen"
-              className="relative z-10 block w-10 h-10 overflow-hidden rounded-full shadow focus:outline-none"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=296&q=80"
-                alt="Profile Image"
-                fill
-              />
-            </button>
+            <Avatar
+              src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=296&q=80"
+              alt="Profile Image"
+              sx={{ width: 40, height: 40 }}
+              className="hover:cursor-pointer"
+            />
             <div className="grid grid-flow-row auto-rows-max place-content-stretch ml-2">
               <div className="text-sm text-gray-500 font-medium">
                 Dominic Keller
