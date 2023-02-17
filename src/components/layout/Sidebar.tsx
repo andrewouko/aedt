@@ -70,10 +70,20 @@ const routes: Route[] = [
     Icon: FaRegUserCircle,
   },
   {
-    path: "/subscription",
+    path: "/subscriptions",
     label: "Subscriptions",
     Icon: BsShieldCheck,
     badge: NewBadge("red"),
+    sub_route: [
+      {
+        path: "/subscriptions",
+        label: "All Subscriptions",
+      },
+      {
+        path: "/subscriptions/manage",
+        label: "Manage Subscriptions",
+      },
+    ],
   },
   {
     path: "/payments",
@@ -93,7 +103,7 @@ const app_routes: Route[] = [
     path: "/training/materials",
     label: "Training and Coaching",
     Icon: AiFillContainer,
-    sub_route: [ 
+    sub_route: [
       {
         path: "/training/session",
         label: "Join or Create Session",
@@ -172,10 +182,7 @@ const NavItem = ({
         ((isOpen.open && isOpen.path === path) ||
           sub_route.findIndex((route) => route.path === pathname) > -1) && (
           <div className="grid grid-cols-1 place-items-end w-full">
-            <div
-              id="dropdown"
-              className="bg-transparent w-3/4"
-            >
+            <div id="dropdown" className="bg-transparent w-3/4">
               <ul
                 className="py-2 text-sm text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownDefaultButton"
