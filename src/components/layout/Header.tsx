@@ -56,8 +56,8 @@ export default function Header( { hidden, setHidden }:SidebarProps ) {
     <>
       <header className="flex items-center justify-between px-5 py-4 bg-white">
         <div className="flex items-center">
-          <RxTextAlignJustify size={`2rem`} onClick={() => setHidden(!hidden)} className="hover:cursor-pointer hover:bg-gray-200" />
-
+          <RxTextAlignJustify size={`2rem`} onClick={() => setHidden(!hidden)} className="hover:cursor-pointer hover:bg-gray-200 lg:hidden" />
+          
           <div className="relative ml-2 min-w-[270px] lg:min-w-[500px]">
             <form method="post" action="#">
               <div className="flex flex-row">

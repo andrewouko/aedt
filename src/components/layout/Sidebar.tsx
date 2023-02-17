@@ -217,7 +217,7 @@ export default function Sidebar({ hidden, setHidden }: SidebarProps) {
   });
   return (
     <>
-      <div className={`${hidden === true ? "hidden" : "lg:flex"}`}>
+      <div className={`${hidden === true ? "hidden" : ""} lg:flex`}>
         <div className="fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-gray-800 lg:translate-x-0 lg:static lg:inset-0">
           <div className="lg:hidden grid grid-cols-1 place-items-end w-full px-6 pt-6">
             <IoMdClose
