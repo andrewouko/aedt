@@ -8,6 +8,8 @@ This project is built using NextJs (Typescript) to manage the learning resources
 3. Tailwind CSS
 4. React Icons
 5. country-flag-icons
+6. lipbphonenumber
+7. react-dropzone
 
 ## Getting Started
 
