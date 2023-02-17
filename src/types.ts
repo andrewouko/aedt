@@ -121,3 +121,8 @@ export interface Payment {
   date: Date;
   subscription_type: SubscriptionType;
 }
+
+export interface SidebarProps {
+    hidden: boolean;
+    setHidden: (hidden: boolean) => void;
+}

@@ -1,7 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import AEDTLogo from "../../public/images/AEDT-logo.png";
 import Image from "next/image";
-import { CheckboxProps, Language, TextInputProps } from "@/types";
+import { CheckboxProps, Language, SidebarProps, TextInputProps } from "@/types";
 import TextInput from "@/components/form/TextInput";
 import Checkbox from "@/components/form/Checkbox";
 import {
@@ -47,7 +47,7 @@ const TopLeftIcon = (
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
 ) => <Icon className="w-5 h-5 text-gray-500" />;
 
-export default function Header() {
+export default function Header( { hidden, setHidden }:SidebarProps ) {
   const [lang, setLang] = useState<Language | undefined>(
     langs.find((lang) => lang.label === "English")
   );
@@ -56,7 +56,7 @@ export default function Header() {
     <>
       <header className="flex items-center justify-between px-5 py-4 bg-white">
         <div className="flex items-center">
-          <RxTextAlignJustify size={`2rem`} />
+          <RxTextAlignJustify size={`2rem`} onClick={() => setHidden(!hidden)} className="hover:cursor-pointer hover:bg-gray-200" />
 
           <div className="relative ml-2 min-w-[270px] lg:min-w-[500px]">
             <form method="post" action="#">

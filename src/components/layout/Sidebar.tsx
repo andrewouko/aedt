@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import Image from "next/image";
-import { CheckboxProps, Route, TextInputProps } from "@/types";
+import { CheckboxProps, Route, SidebarProps, TextInputProps } from "@/types";
 import TextInput from "@/components/form/TextInput";
 import Checkbox from "@/components/form/Checkbox";
 import {
@@ -29,6 +29,7 @@ import { Badge, Chip } from "@mui/material";
 import { useState } from "react";
 import { AiFillContainer, AiOutlineFolderAdd } from "react-icons/ai";
 import { HiOutlineChatAlt2 } from "react-icons/hi";
+import { IoMdClose } from "react-icons/io";
 
 const NewBadge = (color: "white" | "red") =>
   color === "white" ? (
@@ -208,7 +209,7 @@ const NavItem = ({
   );
 };
 
-export default function Sidebar() {
+export default function Sidebar({ hidden, setHidden }: SidebarProps) {
   const router = useRouter();
   const [isOpen, setOpen] = useState<isOpenType>({
     path: "",
@@ -216,8 +217,14 @@ export default function Sidebar() {
   });
   return (
     <>
-      <div className="hidden lg:flex">
+      <div className={`${hidden === true ? "hidden" : "lg:flex"}`}>
         <div className="fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-gray-800 lg:translate-x-0 lg:static lg:inset-0">
+          <div className="lg:hidden grid grid-cols-1 place-items-end w-full px-6 pt-6">
+            <IoMdClose
+              className="text-gray-200 text-3xl hover:cursor-pointer"
+              onClick={() => setHidden(true)}
+            />
+          </div>
           <div className="flex items-center justify-center mt-8">
             <div className="flex items-center">
               <Image

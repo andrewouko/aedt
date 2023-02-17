@@ -18,8 +18,10 @@ import Sidebar from "./Sidebar";
 import Header from "./Header";
 import ContentTitle from "./ContentTitle";
 import Head from "next/head";
+import { useState } from "react";
 
 export default function DashboardLayout({ children, title, crumbs }: DashboardProps) {
+  const [hidden, setHidden] = useState<boolean>(false);
   return (
     <>
       <Head>
@@ -28,9 +30,9 @@ export default function DashboardLayout({ children, title, crumbs }: DashboardPr
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen bg-gray-200 font-roboto">
-        <Sidebar />
+        <Sidebar hidden={hidden} setHidden={setHidden} />
         <div className="flex-1 flex flex-col">
-          <Header />
+          <Header hidden={hidden} setHidden={setHidden} />
           <div className="flex-1  bg-gray-200">
             <div className="w-full px-5 py-8">
               <ContentTitle
