@@ -17,10 +17,10 @@ const Layout = ({ children, title }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className={`pt-24 pb-6 pl-24 pr-6 min-h-screen bg-white grid grid-flow-col-dense grid-cols-3`}
+        className={`p-4 lg:pt-24 lg:pb-6 lg:pl-24 lg:pr-6 min-h-screen bg-white grid grid-flow-col-dense lg:grid-cols-3 grid-cols-1`}
       >
         <div className="border-t border-r border-b border-gray-200 border-solid ">{children}</div>
-        <div className="col-span-2">
+        <div className="hidden lg:block lg:col-span-2">
           <Image
             src={LayoutBackground}
             alt="Layout Background"

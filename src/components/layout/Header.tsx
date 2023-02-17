@@ -58,7 +58,7 @@ export default function Header( { hidden, setHidden }:SidebarProps ) {
         <div className="flex items-center">
           <RxTextAlignJustify size={`2rem`} onClick={() => setHidden(!hidden)} className="hover:cursor-pointer hover:bg-gray-200 lg:hidden" />
           
-          <div className="relative ml-2 min-w-[270px] lg:min-w-[500px]">
+          <div className="relative ml-2 min-w-[240px] lg:min-w-[500px] overflow-hidden">
             <form method="post" action="#">
               <div className="flex flex-row">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -77,7 +77,7 @@ export default function Header( { hidden, setHidden }:SidebarProps ) {
           </div>
         </div>
 
-        <div className="flex items-center space-x-8">
+        <div className="hidden flex items-center space-x-8">
           <div className="flex justify-center">
             <div>
               <div className="dropdown relative">

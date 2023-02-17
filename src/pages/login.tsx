@@ -48,7 +48,7 @@ const inputs: (TextInputProps | CheckboxProps)[] = [
 export default function Login() {
   return (
     <Layout title={`Login`}>
-      <div className="flex flex-col content-center py-12 pr-10 pl-24">
+      <div className="flex flex-col content-center p-6 lg:py-12 lg:pr-10 lg:pl-24">
         <div className="w-1/2 mb-20">
           <Image
             src={AEDTLogo}
@@ -72,7 +72,7 @@ export default function Login() {
               return TextInput(input);
             } else return Checkbox(input);
           })}
-          <Button Icon={BiLogIn} onClick={() => {}} label={`Log In`} type="submit" color="indigo" />
+          <div className="flex justify-center lg:justify-start"><Button Icon={BiLogIn} onClick={() => {}} label={`Log In`} type="submit" color="indigo" /></div>
         </form>
         <div className="grid grid-flow-row auto-rows-max items-center place-content-center mt-8">
           <div className="flex items-center place-content-center text-gray-500 text-lg mb-4">

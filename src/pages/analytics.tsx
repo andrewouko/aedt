@@ -40,7 +40,7 @@ const ChangeIcon = (change: "increase" | "decrease") => {
 export default function Analytics() {
   return (
     <DashboardLayout title="Analytics" crumbs={['Analytics', 'Data']}>
-      <div className="grid grid-cols-4 gap-10 w-full">
+      <div className="grid lg:grid-cols-4 lg:gap-10 grid-cols-2 gap-6 w-full">
         {analytics.map((analysis) => (
           <div
             key={analysis.label}

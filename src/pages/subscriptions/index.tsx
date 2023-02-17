@@ -103,7 +103,7 @@ export default function Subscriptions() {
       title="Subscribed Clients"
       crumbs={["Subscriptions", "Client List"]}
     >
-      <div className="grid grid-cols-4 gap-6 text-gray-500">
+      <div className="grid lg:grid-cols-4 gap-6 grid-cols-1 text-gray-500">
         {clients.map((client: Client) => (
           <div
             key={client.name}
